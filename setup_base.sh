@@ -6,7 +6,7 @@ RED='\033[0;31m'
 LIGHTBLUE='\033[1;34'
 NC='\033[0m' # No Color
 
-if [ $* == "-h" ] || [ $* == "--help" ] ; then
+if [[ $* == "-h" ]] || [[ $* == "--help" ]]; then
     echo "The ubuntu server base install script! By: @stautonico"
     echo "Extra flags:"
     echo "    --proxmox           Install 'qemu-guest-agent' if the server is a proxmox VM"
@@ -54,32 +54,32 @@ if  [[ $* == "--vmware-desktop" ]]; then
     VMWAREDESKTOP=true
 fi
 
-if [ $* == "-m" ] || [ $* == "--monitor" ] ; then
+if [[ $* == "-m" ]] || [[ $* == "--monitor" ]] ; then
     MONITOR=true
 fi
 
-if [ $* == "-z" ] || [ $* == "--zsh" ] ; then
+if [[ $* == "-z" ]] || [[ $* == "--zsh" ]] ; then
     ZSH=true
 fi
 
-if [ $* == "-zx" ] || [ $* == "--zsh-extra" ] ; then
-    if [ $ZSH == false ]; then
+if [[ $* == "-zx" ]] || [[ $* == "--zsh-extra" ]]; then
+    if [[ $ZSH == false ]]; then
         echo -e "$ME: ${LIGHTBLUE}-z/--zsh${NC} is ${RED}required${NC} when using -zx/--zsh-extra"
         exit
     fi
     ZSHEXTRA=true
 fi
 
-if [ $* == "-9k" ] || [ $* == "--power9k" ] ; then
-    if [ $ZSH == false ]; then
+if [[ $* == "-9k" ]] || [[ $* == "--power9k" ]] ; then
+    if [[ $ZSH == false ]]; then
         echo -e "$ME: ${LIGHTBLUE}-z/--zsh${NC} is ${RED}required${NC} when using -9k/--power9k"
         exit
     fi
     PL9K=true
 fi 
 
-if [ $* == "-omz" ] || [ $* == "--oh-my-zsh" ] ; then
-    if [ $ZSH == false ]; then
+if [[ $* == "-omz" ]] || [[ $* == "--oh-my-zsh" ]]; then
+    if [[ $ZSH == false ]]; then
         echo -e "$ME: ${LIGHTBLUE}-z/--zsh${NC} is ${RED}required${NC} when using -omz/--oh-my-zsh"
         exit
     fi
@@ -98,7 +98,7 @@ if  [[ $* == "--mysql" ]]; then
     MYSQL=true
 fi
 
-if [ $* == "-ws" ] || [ $* == "--windscribe" ] ; then
+if [[ $* == "-ws" ]] || [[ $* == "--windscribe" ]]; then
     WINDSCRIBE=true
 fi
 
@@ -188,6 +188,6 @@ sudo ufw default deny
 sudo ufw allow 22
 sudo ufw enable
 
-if [ $ZSH == true ] || [ $ZSHEXTRA == true ] || [ $OMZSH == true ]; then
+if [[ $ZSH == true ]] || [[ $ZSHEXTRA == true ]] || [[ $OMZSH == true ]]; then
     echo -e "${RED}You should restart your computer, but do that whenever you want${NC}"
 fi
